@@ -12,7 +12,7 @@ export class ArticleService {
 
   getArticles(): Observable<Article[]>{
     console.log("In getArticles");
-    return this.http.request('http://localhost:3000/api/v1/articles')
+    return this.http.get('http://localhost:3000/api/v1/articles')
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -26,11 +26,20 @@ export class ArticleService {
                     .catch(this.handleError);
   }
 
-  updateVotes(id:string, votes:number){
+  updateVotes(id:string, votes:number, title:string, link:string):Observable<Article>{
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
+    console.log("In updateVotes service");
+    return this.http.put('http://localhost:3000/api/v1/article/'+id, {title, link, votes}, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
 
-    return this.http.put('http://localhost:3000/api/v1/article/'+id, {votes}, options)
+  deleteArticle(id:string){
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    console.log("In updateVotes service");
+    return this.http.delete('http://localhost:3000/api/v1/article/'+id, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

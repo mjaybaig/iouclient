@@ -15,15 +15,20 @@
   <!--<div class="meta">({{article.domain()}})</div>-->
   <ul class="ui big horizontal list voters">
     <li class="item">
-      <a (click) = "voteUp()">
+      <a href (click) = "voteUp()">
         <i class="arrow up icon"></i>
         upvote
       </a>
     </li>
     <li class="item">
-      <a (click) = "voteDown()">
+      <a href (click) = "voteDown()">
         <i class="arrow down icon"></i>
         downvote
+      </a>
+    </li>
+    <li class="item">
+      <a href (click) = "delete()">
+        delete
       </a>
     </li>
   </ul>

@@ -15,17 +15,36 @@ import '../rxjs-operators';
 export class ArticleComponent implements OnInit {
   @Input() article: Article;
 
-  constructor() { 
+  constructor(private articeService:ArticleService) { 
 
     }
 
-    voteUp(): boolean{
-      this.article.voteUp();
+    voteUp():boolean{
+      this.articeService.updateVotes(this.article._id, this.article.votes+1, this.article.title, this.article.link)
+                        .subscribe(res => {
+                                    console.log(res)
+                                    this.article.votes += 1
+                                  },
+                                  error => console.log(error));
+      // this.article.voteUp();
       return false;
     }
 
     voteDown():boolean{
-      this.article.voteDown();
+      this.articeService.updateVotes(this.article._id, this.article.votes-1, this.article.title, this.article.link)
+                        .subscribe(res => {
+                                    console.log(res.votes)
+                                    this.article.votes -= 1
+                                  },
+                                  error => console.log(error));
+      // this.article.voteDown();
+      return false;
+    }
+
+    delete():boolean{
+      this.articeService.deleteArticle(this.article._id)
+                        .subscribe(res => console.log(res),
+                                    error => console.log(error));
       return false;
     }
 

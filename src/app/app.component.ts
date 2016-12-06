@@ -40,7 +40,7 @@ export class AppComponent {
                           error => this.errorMessage = "Error in setting articles: "+<any>error
                         );
   }
-  // sortedArticles():Article[]{
-  //   return this.articles.sort((a:Article, b:Article) => b.votes - a.votes);
-  // }
+  sortedArticles():Article[]{
+    return this.articles.sort((a:Article, b:Article) => b.votes - a.votes);
+  }
 }

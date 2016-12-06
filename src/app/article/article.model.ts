@@ -13,14 +13,16 @@ export class Article{
         this.votes = votes || 0;
     }
 
-    voteUp(): void{
+    public voteUp():void {
         this.votes += 1;
-        this.articleService.updateVotes(this._id, this.votes);
+        console.log(this.votes);
+        // this.articleService.updateVotes(this._id, this.votes);
     }
 
-    voteDown(): void{
+    public voteDown(): void{
         this.votes -= 1;
-        this.articleService.updateVotes(this._id, this.votes);  
+        console.log(this.votes);
+        // this.articleService.updateVotes(this._id, this.votes);  
     }
 
     domain(): string{
