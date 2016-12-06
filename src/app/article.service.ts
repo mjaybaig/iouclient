@@ -26,7 +26,7 @@ export class ArticleService {
                     .catch(this.handleError);
   }
 
-  updateVotes(id:string, votes:number){
+  updateVotes(id:string, votes:number): Observable<Article>{
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 
@@ -37,7 +37,6 @@ export class ArticleService {
 
   private extractData(res: Response){
     let body = res.json();
-    console.log(body);
     return body || { };
   }
 

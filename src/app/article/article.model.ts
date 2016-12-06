@@ -1,4 +1,5 @@
 import {ArticleService} from '../article.service';
+import { Response} from '@angular/http';
 
 export class Article{
     _id:string;
@@ -14,13 +15,15 @@ export class Article{
     }
 
     voteUp(): void{
+        console.log('model: '+this._id);
         this.votes += 1;
         this.articleService.updateVotes(this._id, this.votes);
+
     }
 
     voteDown(): void{
         this.votes -= 1;
-        this.articleService.updateVotes(this._id, this.votes);  
+        // this.articleService.updateVotes(this._id, this.votes);  
     }
 
     domain(): string{

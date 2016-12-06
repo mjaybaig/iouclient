@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Article} from './article.model';
-import {ArticleService} from '../article.service';
 import '../rxjs-operators';
+import {ArticleService} from '../article.service';
 
 @Component({
   selector: 'app-article',
@@ -9,27 +9,30 @@ import '../rxjs-operators';
   styleUrls: ['./article.component.css'],
   host: {
     class: 'row'
-  },
-  providers: [ArticleService]
+  }
 })
 export class ArticleComponent implements OnInit {
   @Input() article: Article;
 
-  constructor() { 
+  constructor(private articleService:ArticleService) { 
 
-    }
+  }
 
     voteUp(): boolean{
-      this.article.voteUp();
+      console.log('comp: '+this.article._id);
+      this.articleService.updateVotes(this.article._id, this.article.votes+1)
+      // this.article.voteUp();
       return false;
     }
 
     voteDown():boolean{
-      this.article.voteDown();
+      this.articleService.updateVotes(this.article._id, this.article.votes-1)
+      // this.article.voteDown;
       return false;
     }
 
   ngOnInit() {
+    
   }
 
 }
