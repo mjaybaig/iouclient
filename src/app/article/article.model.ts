@@ -25,6 +25,8 @@ export class Article{
         // this.articleService.updateVotes(this._id, this.votes);  
     }
 
+    
+
     domain(): string{
         try{
             const link: string = this.link.split('//')[1];

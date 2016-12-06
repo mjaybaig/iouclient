@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Article} from './article.model';
 import {ArticleService} from '../article.service';
 import '../rxjs-operators';
@@ -14,6 +14,7 @@ import '../rxjs-operators';
 })
 export class ArticleComponent implements OnInit {
   @Input() article: Article;
+  @Output() articleDelete:EventEmitter<any> = new EventEmitter();
 
   constructor(private articeService:ArticleService) { 
 
@@ -45,6 +46,7 @@ export class ArticleComponent implements OnInit {
       this.articeService.deleteArticle(this.article._id)
                         .subscribe(res => console.log(res),
                                     error => console.log(error));
+      this.articleDelete.emit();
       return false;
     }
 
