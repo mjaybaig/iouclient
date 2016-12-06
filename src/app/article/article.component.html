@@ -1,8 +1,10 @@
 <div class = "four wide column center aligned votes">
   <div class="ui statistic">
-    <div class="value">
-      {{article.votes}}
-    </div>
+    <a href (click)="detailview()">
+      <div class="value">
+        {{article.votes}}
+      </div>
+    </a>
     <div class="label">
       Points
     </div>

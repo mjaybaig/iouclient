@@ -11,13 +11,13 @@
     <input name="link" #newlink>
   </div>
 
-  <button (click)="addArticle(newtitle, newlink)"
+  <div class="field">
+    <label for="detail">Details:</label>
+    <textarea rows="3" name="detail" #newdetail></textarea>
+  </div>
+
+  <button (click)="addArticle(newtitle, newlink, newdetail)"
           class="ui positive right floated button">Submit Link</button>
 </form>
 
-<div class="ui grid posts">
-  <app-article *ngFor = "let article of sortedArticles()"
-                [article]="article"
-                (articleDelete) = "deleteArticle(article)"></app-article>
-
-</div>
+<router-outlet></router-outlet>
