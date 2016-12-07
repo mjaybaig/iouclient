@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import {Article} from './article/article.model';
-import {ArticleService} from './article/article.service'
+import {ArticleService} from './article/article.service';
+import {ArticlesComponent} from './articles/articles.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ArticleService]
+  providers: [ArticlesComponent, ArticleService]
 })
 export class AppComponent {
   // articles: Article[] = [];
   // errorMessage: string;
 
-  constructor(private articleService: ArticleService){
+  constructor(private articlecomp:ArticlesComponent){
 
   }
   ngOnInit(){
@@ -19,21 +21,17 @@ export class AppComponent {
   }
 
 
-//   addArticle(title:HTMLInputElement, link: HTMLInputElement, detail:HTMLInputElement): boolean{
-//     console.log(`Adding article title: ${title.value}, detail: ${detail.value} and link: ${link.value}`);
-//     if(!title || !link){
-//       return ;
-//     }
-//     this.articleService.addArticle(title.value, link.value)
-//                       .subscribe(
-//                         article => this.articles.push(article),
-//                         error => this.errorMessage = <any>error
-//                       );
-//     title.value = '';
-//     link.value = '';
-//     detail.value = '';
-//     return false;
-//   }
+  addArticle(title:HTMLInputElement, link: HTMLInputElement, detail:HTMLInputElement): boolean{
+    console.log(`Adding article title: ${title.value}, detail: ${detail.value} and link: ${link.value}`);
+    if(!title || !link){
+      return ;
+    }
+    this.articlecomp.addArticle(title.value, link.value, detail.value);
+    title.value = '';
+    link.value = '';
+    detail.value = '';
+    return false;
+  }
 //   getArticles(){
 //     this.articleService.getArticles()
 //                         .subscribe(

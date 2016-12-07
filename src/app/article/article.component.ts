@@ -21,6 +21,7 @@ export class ArticleComponent implements OnInit {
 
   }
 
+
   voteUp():boolean{
     this.articeService.updateVotes(this.article._id, this.article.votes+1, this.article.title, this.article.link)
                       .subscribe(res => {
@@ -53,6 +54,8 @@ export class ArticleComponent implements OnInit {
 
   detailview():boolean{
     this.router.navigate(['/article', this.article._id]);
+    
+    // console.log(this.article._id);
     return false;
   }
   

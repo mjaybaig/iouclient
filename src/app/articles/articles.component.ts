@@ -5,7 +5,8 @@ import {ArticleService} from '../article/article.service'
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.css']
+  styleUrls: ['./articles.component.css'],
+  providers: [ArticleService]
 })
 export class ArticlesComponent implements OnInit {
   articles: Article[] = [];
@@ -18,20 +19,12 @@ export class ArticlesComponent implements OnInit {
     this.getArticles();
   }
 
-  addArticle(title:HTMLInputElement, link: HTMLInputElement, detail:HTMLInputElement): boolean{
-    console.log(`Adding article title: ${title.value}, detail: ${detail.value} and link: ${link.value}`);
-    if(!title || !link){
-      return ;
-    }
-    this.articleService.addArticle(title.value, link.value, detail.value)
+  addArticle(title:string, link: string, detail:string){
+    this.articleService.addArticle(title, link, detail)
                       .subscribe(
                         article => this.articles.push(article),
                         error => this.errorMessage = <any>error
                       );
-    title.value = '';
-    link.value = '';
-    detail.value = '';
-    return false;
   }
   getArticles(){
     this.articleService.getArticles()
