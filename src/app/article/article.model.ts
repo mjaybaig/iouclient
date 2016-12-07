@@ -1,5 +1,3 @@
-import {ArticleService} from './article.service';
-
 export class Article{
     _id:string;
     title:string;
@@ -7,7 +5,7 @@ export class Article{
     votes:number;
     detail:string;
 
-    constructor(private articleService:ArticleService, title:string, details:string, link:string, votes?: number, id?:string){
+    constructor(title:string, details:string, link:string, votes?: number, id?:string){
         this._id = id;
         this.title = title;
         this.link = link;
@@ -18,13 +16,11 @@ export class Article{
     public voteUp():void {
         this.votes += 1;
         console.log(this.votes);
-        // this.articleService.updateVotes(this._id, this.votes);
     }
 
     public voteDown(): void{
         this.votes -= 1;
         console.log(this.votes);
-        // this.articleService.updateVotes(this._id, this.votes);  
     }
 
     

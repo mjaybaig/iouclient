@@ -53,6 +53,7 @@ export class ArticleComponent implements OnInit {
   }
 
   detailview():boolean{
+    console.log('in detailview() articlecomp');
     this.router.navigate(['/article', this.article._id]);
     
     // console.log(this.article._id);

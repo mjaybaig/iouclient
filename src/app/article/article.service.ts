@@ -22,8 +22,8 @@ export class ArticleService {
   }
 
   getArticle(id:string):Observable<Article>{
-    console.log(''+id);
-    return this.http.get('http://localhost:3000/api/v1/article/'+id)
+    console.log('in getArticle:'+id);
+    return this.http.get(baseURL+'/article/'+id)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -58,7 +58,7 @@ export class ArticleService {
 
   private extractData(res: Response){
     let body = res.json();
-    console.log(body);
+    // console.log(body);
     return body || { };
   }
 
