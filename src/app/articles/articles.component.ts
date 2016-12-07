@@ -23,7 +23,7 @@ export class ArticlesComponent implements OnInit {
     if(!title || !link){
       return ;
     }
-    this.articleService.addArticle(title.value, link.value)
+    this.articleService.addArticle(title.value, link.value, detail.value)
                       .subscribe(
                         article => this.articles.push(article),
                         error => this.errorMessage = <any>error
