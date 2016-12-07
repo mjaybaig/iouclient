@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticlesComponent } from './articles/articles.component';
 import {ArticleDetailComponent} from './article-detail/article-detail.component'
-import { RouterModule, Routes } from '@angular/Router';
+import { RouterModule, Routes } from '@angular/router';
 
 
 // const approutes:Routes = 
@@ -17,8 +17,9 @@ import { RouterModule, Routes } from '@angular/Router';
 //   { path: 'articles', component: 'ArticlesComponent'} 
 // ];
 const appRoutes: Routes = [
-  { path: 'article/:id', component: ArticleDetailComponent },
-  { path: 'articles', component: ArticlesComponent}
+  { path: '', component: ArticlesComponent },
+  { path: 'articles', component: ArticlesComponent},
+  { path: 'article/:id', component: ArticleDetailComponent }
 ];
 
 @NgModule({

@@ -17,11 +17,17 @@ export class ArticleService {
                     .catch(this.handleError);
   }
 
-  addArticle(title:string, link:string): Observable<Article>{
+  getArticle(id:string):Observable<Article>{
+    console.log(''+id);
+    return this.http.get('http://localhost:3000/api/vq/article/'+id)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+  addArticle(title:string, link:string, detail:string): Observable<Article>{
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 
-    return this.http.post('http://localhost:3000/api/v1/article', {title, link}, options)
+    return this.http.post('http://localhost:3000/api/v1/article', {title, link, detail}, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
