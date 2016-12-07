@@ -19,7 +19,7 @@ export class ArticleService {
 
   getArticle(id:string):Observable<Article>{
     console.log(''+id);
-    return this.http.get('http://localhost:3000/api/vq/article/'+id)
+    return this.http.get('http://localhost:3000/api/v1/article/'+id)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
