@@ -1,0 +1,30 @@
+<form [formGroup]="articleForm" 
+      class="ui large form segment"
+      (ngSubmit)="onSubmit(articleForm.value)">
+  <h3 class="ui header">Add a Link</h3>
+
+  <div class="field">
+    <label for="title">Title:</label>
+    <input id="title" name="title" placeholder="Enter a Title" [formControl]="articleForm.controls['title']">
+    <div *ngIf="!articleForm.controls['title'].valid" class="ui error message">Article is invalid</div>
+    <div *ngIf="!articleForm.controls['title'].hasError('required')" class="ui error message">Article is required</div>
+
+  </div>
+
+  <div class="field">
+    <label for="link">Link:</label>
+    <input id="link" name="link" placeholder="Enter the link" [formControl]="articleForm.controls['link']">
+    <div *ngIf="!articleForm.controls['link'].valid" class="ui error message">Link is invalid</div>
+    <div *ngIf="!articleForm.controls['link'].hasError('required')" class="ui error message">Link is required</div>
+  </div>
+
+  <div class="field">
+    <label for="detail">Details:</label>
+    <textarea rows="3" id="detail" name="detail" placeholder="Enter some detail" [formControl]="articleForm.controls['detail']"></textarea>
+     <div *ngIf="!articleForm.controls['detail'].valid" class="ui error message">Details are invalid</div>
+    <div *ngIf="!articleForm.controls['detail'].hasError('required')" class="ui error message">Details are required</div>
+  </div>
+
+  <button type="submit"
+          class="ui positive right floated button">Submit Link</button>
+</form>

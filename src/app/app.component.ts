@@ -32,19 +32,4 @@ export class AppComponent {
     detail.value = '';
     return false;
   }
-//   getArticles(){
-//     this.articleService.getArticles()
-//                         .subscribe(
-//                           articles => this.articles = articles,
-//                           error => this.errorMessage = "Error in setting articles: "+<any>error
-//                         );
-//   }
-//   sortedArticles():Article[]{
-//     return this.articles.sort((a:Article, b:Article) => b.votes - a.votes);
-//   }
-
-//   deleteArticle(article:Article):void{
-//     let articleindex:number = this.articles.findIndex(art => art._id == article._id)
-//     this.articles.splice(articleindex, 1);
-//   }
 }
