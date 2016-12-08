@@ -23,7 +23,7 @@ export class ArticleComponent implements OnInit {
 
 
   voteUp():boolean{
-    this.articeService.updateVotes(this.article._id, this.article.votes+1, this.article.title, this.article.link)
+    this.articeService.updateVotes(this.article._id, this.article.votes+1, this.article.title, this.article.link, this.article.detail)
                       .subscribe(res => {
                                   console.log(res)
                                   this.article.votes += 1
@@ -34,7 +34,7 @@ export class ArticleComponent implements OnInit {
   }
 
   voteDown():boolean{
-    this.articeService.updateVotes(this.article._id, this.article.votes-1, this.article.title, this.article.link)
+    this.articeService.updateVotes(this.article._id, this.article.votes-1, this.article.title, this.article.link, this.article.detail)
                       .subscribe(res => {
                                   console.log(res.votes)
                                   this.article.votes -= 1

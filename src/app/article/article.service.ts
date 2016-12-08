@@ -37,12 +37,12 @@ export class ArticleService {
                     .catch(this.handleError);
   }
 
-  updateVotes(id:string, votes:number, title:string, link:string):Observable<Article>{
+  updateVotes(id:string, votes:number, title:string, link:string, detail:string):Observable<Article>{
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 
     console.log("In updateVotes service");
-    return this.http.put(baseURL+'/article/'+id, {title, link, votes}, options)
+    return this.http.put(baseURL+'/article/'+id, {title, link, votes, detail}, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

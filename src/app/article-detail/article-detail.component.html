@@ -2,5 +2,7 @@
   <a href (click)="backtolist()">Back to main</a>
 </p>
 <div *ngIf='article'>
-  {{article.title}}
+  <h2>{{article.title}}</h2><b>{{article.votes}}</b> votes.
+  <a href='{{article.link}}'>Visit</a>
+  <p>{{article.detail}}</p>
 </div>
