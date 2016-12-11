@@ -22,27 +22,27 @@ export class ArticleComponent implements OnInit {
   }
 
 
-  voteUp():boolean{
-    this.articeService.updateVotes(this.article._id, this.article.votes+1, this.article.title, this.article.link, this.article.detail)
-                      .subscribe(res => {
-                                  console.log(res)
-                                  this.article.votes += 1
-                                },
-                                error => console.log(error));
-    // this.article.voteUp();
-    return false;
-  }
+  // voteUp():boolean{
+  //   this.articeService.updateVotes(this.article._id, this.article.votes+1, this.article.title, this.article.link, this.article.detail)
+  //                     .subscribe(res => {
+  //                                 console.log(res)
+  //                                 this.article.votes += 1
+  //                               },
+  //                               error => console.log(error));
+  //   // this.article.voteUp();
+  //   return false;
+  // }
 
-  voteDown():boolean{
-    this.articeService.updateVotes(this.article._id, this.article.votes-1, this.article.title, this.article.link, this.article.detail)
-                      .subscribe(res => {
-                                  console.log(res.votes)
-                                  this.article.votes -= 1
-                                },
-                                error => console.log(error));
-    // this.article.voteDown();
-    return false;
-  }
+  // voteDown():boolean{
+  //   this.articeService.updateVotes(this.article._id, this.article.votes-1, this.article.title, this.article.link, this.article.detail)
+  //                     .subscribe(res => {
+  //                                 console.log(res.votes)
+  //                                 this.article.votes -= 1
+  //                               },
+  //                               error => console.log(error));
+  //   // this.article.voteDown();
+  //   return false;
+  // }
 
   delete():boolean{
     this.articeService.deleteArticle(this.article._id)

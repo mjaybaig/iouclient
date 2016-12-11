@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 
@@ -9,6 +9,7 @@ import { ArticleComponent } from './article/article.component';
 import { ArticlesComponent } from './articles/articles.component';
 import {ArticleDetailComponent} from './article-detail/article-detail.component'
 import { RouterModule, Routes } from '@angular/router';
+import { ArticleFormComponent } from './article-form/article-form.component';
 
 
 // const approutes:Routes = 
@@ -19,6 +20,7 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
   { path: '', component: ArticlesComponent },
   { path: 'articles', component: ArticlesComponent},
+  { path: 'articles/:listid', component: ArticlesComponent},
   { path: 'article/:id', component: ArticleDetailComponent }
 ];
 
@@ -27,11 +29,14 @@ const appRoutes: Routes = [
     AppComponent,
     ArticleComponent,
     ArticlesComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    ArticleFormComponent,
+    ArticleFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
