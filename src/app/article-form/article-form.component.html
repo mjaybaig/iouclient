@@ -1,4 +1,17 @@
-<form [formGroup]="articleForm" 
+<form [formGroup]="debtForm" class="ui mini form" (ngSubmit)="onSubmit(debtForm.value)">
+  <div class="two fields">
+    <div class="field">
+      <label for="owedby">Who owes you?</label>
+      <input id="owedby" name="owedby" placeholder="Name" [formControl]="debtForm.controls['owedby']" type="text">
+    </div>
+    <div class="field">
+      <label>How much?</label>
+       <input id="amount" name="amount" placeholder="Amount" [formControl]="debtForm.controls['amount']" type="number">
+    </div>
+  </div>
+  <button type="submit" class="ui submit button">Submit</button>
+</form>
+<!--<form [formGroup]="articleForm" 
       class="ui large form segment"
       (ngSubmit)="onSubmit(articleForm.value)">
   <h3 class="ui header">Add a Link</h3>
@@ -27,4 +40,4 @@
 
   <button type="submit"
           class="ui positive right floated button">Submit Link</button>
-</form>
+</form>-->

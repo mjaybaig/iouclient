@@ -1,7 +1,3 @@
 <!--<router-outlet></router-outlet>-->
-
-<div *ngFor="let debt of debts">
-    <p>{{debt.amount}}</p>
-    <p>{{debt.owedby}}</p>
-    <p>{{debt.isClosed}}</p>
-</div>
+<app-article-form [userid]="userId"></app-article-form>
+<app-debts [userid]="userId"></app-debts>

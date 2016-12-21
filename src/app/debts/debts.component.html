@@ -1,0 +1,11 @@
+<div class="ui cards">
+  <div *ngFor="let debt of debts" class="ui card">
+    <div class="content">
+        <div class="header">Rs. {{debt.amount}}</div>
+        <div class="meta">
+            <span>by {{debt.owedby}}</span>
+        </div>
+        <p></p>
+    </div>
+  </div>
+</div>

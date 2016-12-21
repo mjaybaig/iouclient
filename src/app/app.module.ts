@@ -10,6 +10,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import {ArticleDetailComponent} from './article-detail/article-detail.component'
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleFormComponent } from './article-form/article-form.component';
+import { DebtsComponent } from './debts/debts.component';
 
 
 // const approutes:Routes = 
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     ArticlesComponent,
     ArticleDetailComponent,
     ArticleFormComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    DebtsComponent
   ],
   imports: [
     BrowserModule,

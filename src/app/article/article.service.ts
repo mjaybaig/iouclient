@@ -48,6 +48,15 @@ export class ArticleService {
   //                   .map(this.extractData)
   //                   .catch(this.handleError);
   // }
+    addDebt(id:string, name:string, amount:number):Observable<Debt>{
+      let headers = new Headers({'Content-Type': 'application/json'});
+      let options = new RequestOptions({headers: headers});
+
+      console.log("In updateVotes service");
+      return this.http.put(baseURL+'/mydebts/to/'+id, {name, amount}, options)
+                      .map(this.extractData)
+                      .catch(this.handleError);
+  }
 
   // deleteArticle(id:string){
   //   let headers = new Headers({'Content-Type': 'application/json'});
@@ -60,7 +69,8 @@ export class ArticleService {
 
   private extractData(res: Response){
     let body = res.json();
-    // console.log(body);
+    console.log("in extractData");
+    console.log(body);
     return body || { };
   }
 
