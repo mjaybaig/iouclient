@@ -23,6 +23,22 @@ export class DebtsComponent implements OnInit {
                           error => this.errorMessage = "Error in setting articles: "+<any>error
                         );
   }
+
+  closeDebt(index:number){
+    this.articleService.closeDebt(this.userid, index)
+                        .subscribe(
+                          res=>{
+                            if(res['ok'] == 1){
+                              console.log("here");
+                              this.debts[index].isClosed = true;
+                            }
+                            else{
+                              console.log("did not res 1 instead res "+res);
+                            }
+                          },
+                          err=>console.log(err)
+                        )
+  }
   ngOnInit() {
     
     this.getDebts();

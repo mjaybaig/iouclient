@@ -52,10 +52,20 @@ export class ArticleService {
       let headers = new Headers({'Content-Type': 'application/json'});
       let options = new RequestOptions({headers: headers});
 
-      console.log("In updateVotes service");
+      console.log("In adddebt service");
       return this.http.put(baseURL+'/mydebts/to/'+id, {name, amount}, options)
                       .map(this.extractData)
                       .catch(this.handleError);
+  }
+
+  closeDebt(id:string, index:number){
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+
+    console.log("In closedebt service");
+    return this.http.put(baseURL+'/closedebt/to/'+id, {index}, options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
 
   // deleteArticle(id:string){

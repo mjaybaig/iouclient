@@ -1,11 +1,15 @@
 <div class="ui cards">
-  <div *ngFor="let debt of debts" class="ui card">
+  <div *ngFor="let debt of debts; let i=index" class="card">
     <div class="content">
         <div class="header">Rs. {{debt.amount}}</div>
         <div class="meta">
             <span>by {{debt.owedby}}</span>
         </div>
-        <p></p>
+        <p>{{i}}</p>
+    </div>
+    <div *ngIf="!debt.isClosed" (click)="closeDebt(i)" class="ui bottom attached button">
+      <i class="check square icon"></i>
+       Close debt 
     </div>
   </div>
 </div>
