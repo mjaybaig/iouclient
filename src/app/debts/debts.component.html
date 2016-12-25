@@ -5,7 +5,6 @@
         <div class="meta">
             <span>by {{debt.owedby}}</span>
         </div>
-        <p>{{i}}</p>
     </div>
     <div *ngIf="!debt.isClosed" (click)="closeDebt(i)" class="ui bottom attached button">
       <i class="check square icon"></i>
