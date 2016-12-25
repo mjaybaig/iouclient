@@ -1,3 +1,4 @@
+
 <form [formGroup]="debtForm" class="ui mini form" (ngSubmit)="onSubmit(debtForm.value)">
   <div class="two fields">
     <div class="field">
@@ -6,11 +7,12 @@
     </div>
     <div class="field">
       <label>How much?</label>
-       <input id="amount" name="amount" placeholder="Amount" [formControl]="debtForm.controls['amount']" type="number">
+      <input id="amount" name="amount" placeholder="Amount" [formControl]="debtForm.controls['amount']" type="number">
     </div>
   </div>
   <button type="submit" class="ui submit button">Submit</button>
 </form>
+
 <!--<form [formGroup]="articleForm" 
       class="ui large form segment"
       (ngSubmit)="onSubmit(articleForm.value)">
