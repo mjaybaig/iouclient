@@ -1,3 +1,18 @@
 <!--<router-outlet></router-outlet>-->
-<app-article-form [userid]="userId"></app-article-form>
-<app-debts [userid]="userId"></app-debts>
+<div class="ui grid">
+    <div class="twelve wide column">
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="sixteen wide column">
+                    <app-article-form [userid]="userId"></app-article-form>
+                </div>
+                <div class="sixteen wide column">
+                    <app-debts [userid]="userId"></app-debts>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="four wide column">
+        <app-closed-debts [userid]="userId"></app-closed-debts>
+    </div>
+</div>

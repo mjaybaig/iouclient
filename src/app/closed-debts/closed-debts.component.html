@@ -1,0 +1,11 @@
+<h3>Closed Debts</h3>
+
+<div class="ui celled list">
+  <div *ngFor = "let debt of closedDebts" class="item">
+    <i class="dollar icon"></i>
+    <div class="content">
+      <div class="header">{{debt.owedby}}</div>
+      {{debt.amount}}
+    </div>
+  </div>
+</div>

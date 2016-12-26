@@ -1,11 +1,21 @@
-<div class="ui cards">
-  <div *ngFor="let debt of debts" class="ui card">
-    <div class="content">
-        <div class="header">Rs. {{debt.amount}}</div>
-        <div class="meta">
-            <span>by {{debt.owedby}}</span>
-        </div>
-        <p></p>
-    </div>
+
+<!--<div class="three column row">-->
+<div class="ui grid">
+    <div *ngFor="let debt of debts; let i=index" class="four wide column">
+        <!--<div class="four wide column"> -->
+          <div class="ui card">
+            <div class="content">
+              <div class="header">Rs. {{debt.amount}}</div>
+              <div class="meta">
+                <span>owed by {{debt.owedby}}</span>
+              </div>
+              <p>{{i}}</p> {{debt.isClosed}}
+            </div>
+            <div *ngIf="!debt.isClosed" (click)="closeDebt(debt.idindex)" class="ui bottom attached button">
+              <i class="check square icon"></i>
+                I have received this
+            </div>
+          </div>
+      <!--</div>-->
   </div>
 </div>
